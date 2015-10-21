@@ -4,7 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.content.Intent;
 public class Workout_Main extends AppCompatActivity {
 
     @Override
@@ -20,6 +21,16 @@ public class Workout_Main extends AppCompatActivity {
         return true;
     }
 
+    public void New_Routine_clicked(View view)
+    {
+        Intent intent4 = new Intent(this, New_work_Rountine.class);
+        startActivity(intent4);
+    }
+   public void Start_workout_clicked(View view)
+   {
+       Intent intent5 = new Intent(this, User_add_exercise.class);
+       startActivity(intent5);
+   }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

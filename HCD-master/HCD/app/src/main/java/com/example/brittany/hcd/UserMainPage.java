@@ -4,7 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.content.Intent;
+import android.view.View;
 public class UserMainPage extends AppCompatActivity {
 
     @Override
@@ -19,6 +20,19 @@ public class UserMainPage extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_user_main_page, menu);
         return true;
     }
+
+    public void Symptoms_clicked(View view)
+    {
+        Intent intent = new Intent(this, Symptoms_Main.class);
+        startActivity(intent);
+    }
+
+    public void Workout_clicked(View view)
+    {
+        Intent intent = new Intent(this, Workout_Main.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

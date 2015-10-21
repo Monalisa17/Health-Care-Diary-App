@@ -4,7 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.content.Intent;
 public class User_add_exercise extends AppCompatActivity {
 
     @Override
@@ -19,7 +20,21 @@ public class User_add_exercise extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_user_add_exercise, menu);
         return true;
     }
-
+    public void Add_exercise_clicked(View view)
+    {
+       Intent intent5 = new Intent(this, add_exercise.class);
+        startActivity(intent5);
+    }
+    public void Pushup_clicked(View view)
+    {
+        Intent intent6 = new Intent(this, Pushup_goal.class);
+        startActivity(intent6);
+    }
+    public void Heartrate_clicked(View view)
+    {
+        Intent intent7 = new Intent(this, Heart_rate_monitor_firstscreen.class);
+        startActivity(intent7);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
