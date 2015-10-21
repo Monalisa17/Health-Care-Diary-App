@@ -57,7 +57,9 @@
         android:textSize="12pt"
         android:textColor="#ffffff"
         android:paddingLeft="-140dp"
-        android:onClick="Symptoms_clicked"/>
+        android:onClick="Symptoms_clicked"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
 
     <Button
 
@@ -82,7 +84,10 @@
         android:textSize="12pt"
         android:textColor="#ffffff"
         android:background="#6372a4"
-        android:paddingLeft="-70dp" />
+        android:paddingLeft="-70dp"
+        android:onClick="Food_diary_clicked"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
 
     <Button
         android:layout_width="fill_parent"
@@ -94,7 +99,8 @@
         android:textColor="#ffffff"
         android:paddingLeft="30dp"
         android:nestedScrollingEnabled="true"
-        android:background="#242283" />
+        android:background="#242283"
+        android:onClick="Report_clicked"/>
 
 
     <Button
@@ -107,6 +113,7 @@
         android:textColor="#ffffff"
         android:paddingLeft="-200dp"
         android:background="#c560d2"
-        android:layout_gravity="left" />
+        android:layout_gravity="left"
+        android:layout_marginTop="5dp" />
 
 </LinearLayout>

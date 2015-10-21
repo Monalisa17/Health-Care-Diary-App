@@ -23,16 +23,25 @@ public class UserMainPage extends AppCompatActivity {
 
     public void Symptoms_clicked(View view)
     {
-        Intent intent = new Intent(this, Symptoms_Main.class);
-        startActivity(intent);
+        Intent intent_Symptoms = new Intent(this, Symptoms_Main.class);
+        startActivity(intent_Symptoms);
     }
 
     public void Workout_clicked(View view)
     {
-        Intent intent = new Intent(this, Workout_Main.class);
-        startActivity(intent);
+        Intent intent_workout = new Intent(this, Workout_Main.class);
+        startActivity(intent_workout);
     }
-
+    public void Food_diary_clicked(View view)
+    {
+        Intent intent_food = new Intent(this, Food_Diary_Takeimage.class);
+        startActivity(intent_food);
+    }
+    public void Report_clicked(View view)
+    {
+        Intent intent_Report = new Intent(this, Report_main.class);
+        startActivity(intent_Report);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.brittany.hcd.Food_Diary_Takeimage"
+    android:id="@+id/Text_title"
+    android:weightSum="1">
+
+    <TextView android:text="Food Diary" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14pt"
+        android:textColor="#000000"
+        android:paddingLeft="80dp"
+        android:paddingTop="50dp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+
+        android:layout_row="1"
+        android:layout_column="2"
+
+        android:layout_marginTop="50dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title:"
+        android:id="@+id/Title"
+        android:paddingTop="50dp"
+        android:textSize="12pt"
+        android:textColor="#000000"
+
+        android:layout_row="1"
+        android:layout_column="0" />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText7"
+        android:layout_row="1"
+        android:layout_column="1"
+        />
+</GridLayout>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Description:"
+        android:id="@+id/Description_food"
+        android:paddingTop="10dp"
+        android:textSize="12pt"
+        android:textColor="#000000"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Description_details"
+        android:inputType="textMultiLine"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.40" />
+
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:layout_row="2"
+        android:layout_column="3"
+        android:layout_marginTop="50dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/Save_button"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_marginLeft="50dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/Cancel_button"
+            android:layout_marginLeft="50dp" />
+    </GridLayout>
+
+
+</LinearLayout>

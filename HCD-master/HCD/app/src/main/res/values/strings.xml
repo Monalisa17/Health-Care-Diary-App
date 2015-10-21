@@ -24,4 +24,9 @@
     </string>
     <string name="title_activity_loading_screen__bioharness">Loading_screen_Bioharness</string>
     <string name="title_activity_heart_rate_display">heart_rate_display</string>
+    <string name="title_activity_workout_overview">Workout_overview</string>
+    <string name="title_activity_workout_overview__details">Workout_overview_Details</string>
+    <string name="title_activity_report_main">Report_main</string>
+    <string name="title_activity_food__diary__takeimage">Food_Diary_Takeimage</string>
+    <string name="title_activity_food__save_details">Food_Save_details</string>
 </resources>

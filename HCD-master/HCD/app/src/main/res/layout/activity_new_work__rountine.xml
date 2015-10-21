@@ -26,7 +26,9 @@
         android:layout_column="4"
 
         android:background="#922eb5"
-        android:layout_weight="0.16">
+        android:layout_weight="0.16"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
 
 
         <TextView

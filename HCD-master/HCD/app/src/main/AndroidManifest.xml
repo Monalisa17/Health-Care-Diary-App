@@ -148,6 +148,46 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.brittany.hcd.User_add_exercise" />
         </activity>
+        <activity
+            android:name=".Workout_overview"
+            android:label="@string/title_activity_workout_overview"
+            android:parentActivityName=".Workout_Main" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.brittany.hcd.Workout_Main" />
+        </activity>
+        <activity
+            android:name=".Workout_overview_Details"
+            android:label="@string/title_activity_workout_overview__details"
+            android:parentActivityName=".Workout_overview" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.brittany.hcd.Workout_overview" />
+        </activity>
+        <activity
+            android:name=".Report_main"
+            android:label="@string/title_activity_report_main"
+            android:parentActivityName=".UserMainPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.brittany.hcd.UserMainPage" />
+        </activity>
+        <activity
+            android:name=".Food_Diary_Takeimage"
+            android:label="@string/title_activity_food__diary__takeimage"
+            android:parentActivityName=".UserMainPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.brittany.hcd.UserMainPage" />
+        </activity>
+        <activity
+            android:name=".Food_Save_details"
+            android:label="@string/title_activity_food__save_details"
+            android:parentActivityName=".Food_Diary_Takeimage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.brittany.hcd.Food_Diary_Takeimage" />
+        </activity>
     </application>
 
 </manifest>

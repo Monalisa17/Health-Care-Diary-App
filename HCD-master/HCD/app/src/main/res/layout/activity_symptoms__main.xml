@@ -32,7 +32,9 @@
         android:textSize="12pt"
         android:textColor="#ffffff"
         android:paddingLeft="-190dp"
-        android:onClick="Create_clicked"/>
+        android:onClick="Create_clicked"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
 
     <Button
         android:layout_width="fill_parent"
@@ -44,7 +46,8 @@
         android:textSize="12pt"
         android:textColor="#ffffff"
         android:paddingLeft="-100dp"
-        android:onClick="Overview_clicked"/>
+        android:onClick="Overview_clicked"
+        android:layout_marginBottom="5dp" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
