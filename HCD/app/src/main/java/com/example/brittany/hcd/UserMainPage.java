@@ -42,7 +42,11 @@ public class UserMainPage extends AppCompatActivity {
         Intent intent_Report = new Intent(this, Report_main.class);
         startActivity(intent_Report);
     }
-
+    public void Logout_clicked(View view)
+    {
+        Intent intent_logout = new Intent(this, MainActivity.class);
+        startActivity(intent_logout);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

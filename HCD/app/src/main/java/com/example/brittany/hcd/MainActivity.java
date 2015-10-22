@@ -23,9 +23,10 @@ public class MainActivity extends ActionBarActivity {
 
     public void Login_clicked(View view)
     {
-        Intent intent = new Intent(this, UserMainPage.class);
-        startActivity(intent);
+        Intent intent_login = new Intent(this, UserMainPage.class);
+        startActivity(intent_login);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

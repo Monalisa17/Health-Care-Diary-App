@@ -46,8 +46,8 @@
             android:paddingTop="10dp" />
 
         <EditText
-            android:layout_width="284dp"
-            android:layout_height="83dp"
+            android:layout_width="234dp"
+            android:layout_height="74dp"
             android:inputType="textMultiLine"
             android:ems="10"
             android:id="@+id/editText3"
@@ -57,7 +57,19 @@
             android:background="#ffffff"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="0dp"
-            android:paddingTop="0dp" />
+            android:paddingTop="0dp"
+            android:layout_marginLeft="10dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:id="@+id/button4"
+            android:layout_row="1"
+            android:layout_column="4"
+            android:onClick="Create_click"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="-10dp" />
     </GridLayout>
 
 

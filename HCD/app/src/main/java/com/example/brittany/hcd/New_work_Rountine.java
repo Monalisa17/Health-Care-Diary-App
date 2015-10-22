@@ -1,10 +1,12 @@
 package com.example.brittany.hcd;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.content.Context;
+import android.view.View;
 public class New_work_Rountine extends AppCompatActivity {
 
     @Override
@@ -20,6 +22,11 @@ public class New_work_Rountine extends AppCompatActivity {
         return true;
     }
 
+    public void Create_click(View view)
+    {
+        Intent intent_create = new Intent(this, User_add_exercise.class);
+        startActivity(intent_create);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

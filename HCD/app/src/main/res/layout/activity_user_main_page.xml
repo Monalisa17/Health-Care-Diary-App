@@ -114,6 +114,7 @@
         android:paddingLeft="-200dp"
         android:background="#c560d2"
         android:layout_gravity="left"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:onClick="Logout_clicked"/>
 
 </LinearLayout>
