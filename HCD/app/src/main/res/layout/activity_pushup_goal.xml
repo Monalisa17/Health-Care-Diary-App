@@ -44,7 +44,7 @@
             android:layout_height="57dp"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText4"
+            android:id="@+id/editText_goal"
             android:layout_gravity="center_horizontal"
             android:layout_row="1"
             android:layout_column="2"
@@ -59,8 +59,8 @@
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/button2"
+        android:onClick="Goal_entered"
         android:layout_below="@+id/gridLayout"
-        android:layout_centerHorizontal="true"
-        android:onClick="Goal_entered"/>
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

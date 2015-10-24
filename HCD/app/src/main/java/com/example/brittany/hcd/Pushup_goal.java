@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
 public class Pushup_goal extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +26,30 @@ public class Pushup_goal extends AppCompatActivity {
     }
     public void Goal_entered(View view)
     {
-        Intent intent5 = new Intent(this,Position_pushup.class);
-        startActivity(intent5);
+        EditText goal = (EditText) findViewById(R.id.editText_goal);
+
+
+        try {
+            int number = Integer.parseInt(goal.getText().toString());
+            if( number == 0 )
+            {
+                Toast t = Toast.makeText(this, "You can do more than that! Come on! PUSH IT!", Toast.LENGTH_SHORT);
+                t.show();
+                return;
+
+            }
+
+            // Go to the position screen
+            Intent intent5 = new Intent(this,Position_pushup.class);
+            intent5.putExtra("parameter_name", number);
+
+            startActivity(intent5);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            Toast t = Toast.makeText(this, "You have to put something!", Toast.LENGTH_SHORT);
+            t.show();
+        }
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -1,9 +1,12 @@
 package com.example.brittany.hcd;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Pushup_save extends AppCompatActivity {
 
@@ -11,6 +14,26 @@ public class Pushup_save extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pushup_save);
+
+        // Get the parameters passed
+        Bundle extras = getIntent().getExtras();
+        String pushdone_string = extras.getString("EXTRA_PUSHDONE");
+        int pushgoal_integer = extras.getInt("EXTRA_PUSHGOAL", 0);
+
+        // Display Value
+        TextView displayGoal = (TextView) findViewById(R.id.textView_goalSave);
+        displayGoal.setText(pushdone_string);
+
+        if(Integer.parseInt(pushdone_string) > pushgoal_integer)
+        {
+            Toast t = Toast.makeText(this, "CONGRATULATIONS YOU BEAT YOUR GOAL!!!", Toast.LENGTH_SHORT);
+            t.show();
+        }
+        if(Integer.parseInt(pushdone_string) == pushgoal_integer)
+        {
+            Toast t = Toast.makeText(this, "CONGRATULATIONS YOU REACHED YOUR GOAL!!!", Toast.LENGTH_SHORT);
+            t.show();
+        }
     }
 
     @Override
