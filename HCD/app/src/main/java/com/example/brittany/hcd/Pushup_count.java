@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Pushup_count extends AppCompatActivity implements SensorEventListener {
@@ -25,23 +26,26 @@ public class Pushup_count extends AppCompatActivity implements SensorEventListen
             "You were born to lift",
             "You are almost there",
             "Don't Give up!",
-            "Half Way!",
             "COME ON!",
             "PUSH IT!",
             "DO IT!",
+            "You got this!",
             "RAWWWRRR!"};
     // Views
     private TextView proximityView;
     private TextView courageView;
+    private Random generator;
 
     // Sensors
     private SensorManager sensorManager;
     // Variables
     int counter = 0;
-    int motivation = 0;
-    int divideNumber = 0;
+//    int motivation = 0;
+//    int divideNumber = 0;
+    int displayNumber = 0;
     int goal = 0;
     String proximityOut = "0";
+    boolean reset = false;
 
 
 
@@ -61,7 +65,7 @@ public class Pushup_count extends AppCompatActivity implements SensorEventListen
         // Display Text view
         proximityView = (TextView) findViewById(R.id.textView_proximityView);
         courageView = (TextView) findViewById(R.id.textView_encourage); // change this view
-        motivation = goal; // set as motivation
+
 
         // Real sensor Manager
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -75,7 +79,11 @@ public class Pushup_count extends AppCompatActivity implements SensorEventListen
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY),
                 SensorManager.SENSOR_DELAY_GAME);
 
-        divideNumber = motivation/15;
+        // Variables
+//        motivation = goal; // set as motivation
+//        divideNumber = motivation/pushit.length;
+        generator = new Random(System.currentTimeMillis());
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,6 +118,8 @@ public class Pushup_count extends AppCompatActivity implements SensorEventListen
     }
 
     // int i,j = 0;
+    // if( (divideNumber == Integer.parseInt(proximityOut) )){courageView.setText(pushit[10]);}
+
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
@@ -120,18 +130,30 @@ public class Pushup_count extends AppCompatActivity implements SensorEventListen
             switch (sensorEvent.sensor.getType()) {
                 case Sensor.TYPE_PROXIMITY:
 
-                    // j--;
+                    // Store push up; /2 since counts twice
+                    displayNumber = (counter++)/2;
+                    // System.out.println("DISPLAY NUMBER: " + displayNumber + " " + "PUSH - LENGTH: " + pushit.length);
+                    // Store as string
+                    proximityOut = Integer.toString(displayNumber);
 
-                    proximityOut = Integer.toString((counter++)/2);
-                    // if( (divideNumber == Integer.parseInt(proximityOut) )){courageView.setText(pushit[10]);}
-//                    if( (j % divideNumber) == 0)
-//                    {
-//                        courageView.setText(pushit[i]);
-//                        i++;
-//                    }
+                    if ( (displayNumber % goal) == 0)
+                    {
+                        courageView.setText(pushit[generator.nextInt(pushit.length-2)]);
+                    }
+                    // To take off half way, if the mod does not kick in
+                    if( (goal / 2) == Integer.parseInt(proximityOut) )
+                    {
+                        if(reset){courageView.setText(pushit[generator.nextInt(pushit.length-2)]);}
+                        else{courageView.setText(pushit[13]);reset = true;}
+                    }
+                    if( (goal - 1) == Integer.parseInt(proximityOut) )
+                    {
+                        reset = true;
+                        courageView.setText(pushit[14]);
+                    }
+                    // Display success push up
                     proximityView.setText(proximityOut);
                     break;
-
             }
         }
 

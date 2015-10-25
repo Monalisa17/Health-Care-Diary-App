@@ -33,7 +33,7 @@ public class Pushup_goal extends AppCompatActivity {
             int number = Integer.parseInt(goal.getText().toString());
             if( number == 0 )
             {
-                Toast t = Toast.makeText(this, "You can do more than that! Come on! PUSH IT!", Toast.LENGTH_SHORT);
+                Toast t = Toast.makeText(this, "You can do more than that. Come on, push it!", Toast.LENGTH_SHORT);
                 t.show();
                 return;
 

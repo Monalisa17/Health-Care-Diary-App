@@ -51,10 +51,22 @@ public class Pushup_save extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             return true;
         }
+        // return super.onOptionsItemSelected(item);
+        if (id == R.id.action_bar)
+        {
 
-        return super.onOptionsItemSelected(item);
+        }
+        onBackPressed();
+        return true;
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, Workout_Main.class));
+        finish();
     }
 }
