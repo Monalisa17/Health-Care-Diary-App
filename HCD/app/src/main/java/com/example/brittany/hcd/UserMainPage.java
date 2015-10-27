@@ -21,23 +21,6 @@ public class UserMainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main_page);
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        initParse(); // another way without using class
-    }
-    private void initParse() {
-        try
-        {
-            // Enable Local Datastore.
-            Parse.enableLocalDatastore(this);
-            Parse.initialize(this, "9lsXvAhxazTezFl8oTEhCnGr3p9S0qNetMNgmmgR", "ZYWsX8HmLCoEBFkfwZuPljn2VNiaqDomcMbkFIrk");
-            ParseInstallation.getCurrentInstallation().saveInBackground();
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
