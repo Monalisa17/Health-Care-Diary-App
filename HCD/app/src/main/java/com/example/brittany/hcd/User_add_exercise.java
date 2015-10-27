@@ -28,7 +28,9 @@ public class User_add_exercise extends AppCompatActivity {
     public void Pushup_clicked(View view)
     {
         Intent intent6 = new Intent(this, Pushup_goal.class);
+
         startActivity(intent6);
+
     }
     public void Heartrate_clicked(View view)
     {

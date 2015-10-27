@@ -1,11 +1,19 @@
 package com.example.brittany.hcd;
 
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
+
+import com.parse.Parse;
+import com.parse.ParseInstallation;
+
+import java.util.Random;
+
 public class UserMainPage extends AppCompatActivity {
 
     @Override

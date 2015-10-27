@@ -6,12 +6,33 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
+
+import com.parse.Parse;
+import com.parse.ParseInstallation;
+
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initParse(); // another way without using class
+    }
+    private void initParse() {
+        try
+        {
+            // Enable Local Datastore.
+            Parse.enableLocalDatastore(this);
+            Parse.initialize(this, "9lsXvAhxazTezFl8oTEhCnGr3p9S0qNetMNgmmgR", "ZYWsX8HmLCoEBFkfwZuPljn2VNiaqDomcMbkFIrk");
+            ParseInstallation.getCurrentInstallation().saveInBackground();
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Override
