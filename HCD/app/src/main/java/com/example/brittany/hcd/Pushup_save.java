@@ -36,9 +36,7 @@ public class Pushup_save extends AppCompatActivity {
         TextView displayGoal = (TextView) findViewById(R.id.textView_goalSave);
         displayGoal.setText(pushdone_string);
 
-        // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "9lsXvAhxazTezFl8oTEhCnGr3p9S0qNetMNgmmgR", "ZYWsX8HmLCoEBFkfwZuPljn2VNiaqDomcMbkFIrk");
+
 
         ParseObject PushupCount = new ParseObject("PushupCount");
         PushupCount.put("Count", pushdone_string);
@@ -103,11 +101,11 @@ public class Pushup_save extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        Intent intent = new Intent(Pushup_save.this, Workout_Main.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+       // Intent intent = new Intent(Pushup_save.this, Workout_Main.class);
+       // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+       // startActivity(intent);
 
-        // startActivity(new Intent(this, Workout_Main.class));
+        startActivity(new Intent(this, Workout_Main.class));
         // finish();
 
     }
