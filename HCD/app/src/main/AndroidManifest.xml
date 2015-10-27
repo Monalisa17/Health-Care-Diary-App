@@ -44,12 +44,13 @@
                 android:value="com.example.brittany.hcd.Symptoms_Main" />
         </activity>
         <activity
+
             android:name=".Symptom_overview"
             android:label="@string/title_activity_symptom_overview"
-            android:parentActivityName=".NewSymptom" >
+            android:parentActivityName=".Symptoms_Main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.brittany.hcd.NewSymptom" />
+                android:value="com.example.brittany.hcd.Symptoms_Main" />
         </activity>
         <activity
             android:name=".AllSymptom_details"
@@ -62,10 +63,10 @@
         <activity
             android:name=".Specific_Symptom_click"
             android:label="@string/title_activity_specific__symptom_click"
-            android:parentActivityName=".AllSymptom_details" >
+            android:parentActivityName=".Symptom_overview" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.brittany.hcd.AllSymptom_details" />
+                android:value="com.example.brittany.hcd.Symptom_overview" />
         </activity>
         <activity
             android:name=".Workout_Main"
@@ -86,10 +87,10 @@
         <activity
             android:name=".User_add_exercise"
             android:label="@string/title_activity_user_add_exercise"
-            android:parentActivityName=".New_work_Rountine" >
+            android:parentActivityName=".Workout_Main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.brittany.hcd.New_work_Rountine" />
+                android:value="com.example.brittany.hcd.Workout_Main" />
         </activity>
         <activity
             android:name=".add_exercise"
@@ -126,10 +127,10 @@
         <activity
             android:name=".Pushup_save"
             android:label="@string/title_activity_pushup_save"
-            android:parentActivityName=".Pushup_count" >
+            android:parentActivityName=".Workout_Main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.brittany.hcd.Pushup_count" />
+                android:value="com.example.brittany.hcd.Workout_Main" />
         </activity>
         <activity
             android:name=".Heart_rate_monitor_firstscreen"

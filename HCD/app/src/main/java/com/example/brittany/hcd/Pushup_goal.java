@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.Parse;
+
 public class Pushup_goal extends AppCompatActivity {
 
 
@@ -42,6 +44,8 @@ public class Pushup_goal extends AppCompatActivity {
             // Go to the position screen
             Intent intent5 = new Intent(this,Position_pushup.class);
             intent5.putExtra("parameter_name", number);
+
+
 
             startActivity(intent5);
         } catch (NumberFormatException e) {

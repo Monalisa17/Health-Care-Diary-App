@@ -12,6 +12,8 @@ public class Workout_Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout__main);
+
+
     }
 
     @Override
@@ -29,7 +31,9 @@ public class Workout_Main extends AppCompatActivity {
    public void Start_workout_clicked(View view)
    {
        Intent intent5 = new Intent(this, User_add_exercise.class);
+
        startActivity(intent5);
+
    }
     public void overview_clicked(View view)
     {

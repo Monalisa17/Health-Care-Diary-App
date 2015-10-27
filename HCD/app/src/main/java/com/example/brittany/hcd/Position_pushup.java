@@ -31,6 +31,9 @@ public class Position_pushup extends AppCompatActivity {
         // Pass in the goal
         Intent intent5 = new Intent(this, Pushup_count.class);
         intent5.putExtra("parameter_name", goal);
+
+
+
         startActivity(intent5);
     }
     @Override

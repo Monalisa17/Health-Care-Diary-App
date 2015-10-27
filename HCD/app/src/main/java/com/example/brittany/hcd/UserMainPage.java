@@ -1,17 +1,42 @@
 package com.example.brittany.hcd;
 
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
+
+import com.parse.Parse;
+import com.parse.ParseInstallation;
+
+import java.util.Random;
+
 public class UserMainPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main_page);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initParse(); // another way without using class
+    }
+    private void initParse() {
+        try
+        {
+            // Enable Local Datastore.
+            Parse.enableLocalDatastore(this);
+            Parse.initialize(this, "9lsXvAhxazTezFl8oTEhCnGr3p9S0qNetMNgmmgR", "ZYWsX8HmLCoEBFkfwZuPljn2VNiaqDomcMbkFIrk");
+            ParseInstallation.getCurrentInstallation().saveInBackground();
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Override

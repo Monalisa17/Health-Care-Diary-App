@@ -100,6 +100,7 @@ public class Pushup_count extends AppCompatActivity implements SensorEventListen
         extras.putInt("EXTRA_PUSHGOAL", goal);
 
         intent5.putExtras(extras);
+
         startActivity(intent5);
     }
     @Override
