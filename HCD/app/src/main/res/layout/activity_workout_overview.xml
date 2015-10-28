@@ -60,7 +60,7 @@
     </GridLayout>
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:layout_row="1"
         android:layout_column="3"
 
@@ -76,9 +76,9 @@
             android:layout_row="1"
             android:layout_column="1"
             android:src="@drawable/edit_workout"
-
-            android:scaleType="fitXY"
-            android:layout_gravity="fill|right"/>
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:layout_gravity="fill"/>
 
         <Button
             android:layout_width="240dp"
@@ -91,7 +91,7 @@
             android:textColor="#ffffff"
             android:layout_gravity="top"
             android:textAlignment="center"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:background="#25931a"
             android:onClick="Description_clicked"/>
 
@@ -102,9 +102,9 @@
             android:layout_row="1"
             android:layout_column="3"
             android:src="@drawable/delete_workout"
-
-            android:layout_gravity="fill|right"
-            android:scaleType="fitXY"/>
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:layout_gravity="fill"/>
 
     </GridLayout>
     <GridLayout
@@ -122,9 +122,9 @@
             android:layout_row="1"
             android:layout_column="1"
             android:src="@drawable/edit_workout"
-
-            android:layout_gravity="fill|right"
-            android:scaleType="fitXY"/>
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:layout_gravity="fill"/>
         <Button
             android:layout_width="210dp"
             android:layout_height="wrap_content"
@@ -147,9 +147,9 @@
             android:layout_row="1"
             android:layout_column="3"
             android:src="@drawable/delete_workout"
-
-            android:layout_gravity="fill"
-            android:scaleType="fitXY"/>
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:layout_gravity="fill"/>
 
     </GridLayout>
     <GridLayout
@@ -163,15 +163,15 @@
         android:layout_marginBottom="5dp">
 
         <ImageButton
-            android:layout_width="72dp"
-            android:layout_height="68dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/imageButton9"
             android:layout_row="1"
             android:layout_column="1"
             android:src="@drawable/edit_workout"
-            android:adjustViewBounds="true"
-            android:layout_gravity="fill|right"
-            android:scaleType="fitXY"/>
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:layout_gravity="fill"/>
         <Button
             android:layout_width="210dp"
             android:layout_height="wrap_content"
@@ -187,15 +187,15 @@
             android:layout_marginLeft="20dp" />
 
         <ImageButton
-            android:layout_width="72dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/imageButton13"
             android:layout_row="1"
             android:layout_column="3"
             android:src="@drawable/delete_workout"
-            android:adjustViewBounds="true"
-            android:layout_gravity="fill"
-            android:scaleType="fitXY"/>
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:layout_gravity="fill"/>
 
     </GridLayout>
     <GridLayout
@@ -208,15 +208,15 @@
 
         android:layout_marginBottom="5dp">
     <ImageButton
-        android:layout_width="72dp"
-        android:layout_height="68dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/imageButton14"
         android:layout_row="1"
         android:layout_column="1"
         android:src="@drawable/edit_workout"
-
-        android:layout_gravity="fill|right"
-        android:scaleType="fitXY"/>
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:layout_gravity="fill"/>
     <Button
         android:layout_width="210dp"
         android:layout_height="wrap_content"
@@ -232,15 +232,15 @@
         android:background="#25931a" />
 
     <ImageButton
-        android:layout_width="72dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton16"
         android:layout_row="1"
         android:layout_column="3"
         android:src="@drawable/delete_workout"
-
-        android:layout_gravity="fill"
-        android:scaleType="fitXY"/>
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:layout_gravity="fill"/>
 
 </GridLayout>
     <GridLayout
