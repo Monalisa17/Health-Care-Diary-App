@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.parse.Parse;
 import com.parse.ParseFile;
 
 import java.io.ByteArrayOutputStream;
@@ -33,9 +32,9 @@ public class Food_Diary_Takeimage extends AppCompatActivity {
 
         //brittany
         // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
+        //Parse.enableLocalDatastore(this);
 
-        Parse.initialize(this, "9lsXvAhxazTezFl8oTEhCnGr3p9S0qNetMNgmmgR", "ZYWsX8HmLCoEBFkfwZuPljn2VNiaqDomcMbkFIrk");
+
 
         b = findViewById(R.id.saveButton);
         b.setVisibility(View.GONE);

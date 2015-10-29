@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="SAVE"
         android:id="@+id/saveButton"
-        android:onClick="saveEntry"
+        android:onClick="Save_food_details"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView" />
