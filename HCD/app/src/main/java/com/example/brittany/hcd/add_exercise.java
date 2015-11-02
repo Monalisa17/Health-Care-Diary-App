@@ -4,6 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 public class add_exercise extends AppCompatActivity {
 
@@ -34,4 +39,37 @@ public class add_exercise extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    public void Exercise_entered(View view) {
+
+
+
+        ParseObject Add_Exercise = new ParseObject("Add_Exercise");
+        Add_Exercise.put("Name", "ADD StRING NAME");
+
+Add_Exercise.saveAllInBackground();
+        Add_Exercise.saveAllInBackground()
+        Add_Exercise.saveInBackground();
+
+        // Check if it saved, will display on the app
+        PushupCount.saveInBackground(new SaveCallback()
+        {
+            @Override
+            public void done(ParseException e) {
+                if (e != null) {
+                    // Log.e("PARSE.COM", "FAILED" + e.getMessage());
+                    pass.setText("Did not save! ");
+                } else {
+                    // Log.e("PARSE.COM", "SUCCESS");
+                    pass.setText("Has been saved! ");
+
+                }
+            }
+        });
+
+
+    }
+
+
 }
