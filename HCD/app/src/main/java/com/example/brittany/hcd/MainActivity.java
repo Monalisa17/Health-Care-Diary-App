@@ -47,7 +47,11 @@ public class MainActivity extends ActionBarActivity {
         Intent intent_login = new Intent(this, UserMainPage.class);
         startActivity(intent_login);
     }
-
+    public void Create_account_click(View view)
+    {
+        Intent intent_caccount = new Intent(this, Create_user.class);
+        startActivity(intent_caccount);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -44,7 +44,6 @@
                 android:value="com.example.brittany.hcd.Symptoms_Main" />
         </activity>
         <activity
-
             android:name=".Symptom_overview"
             android:label="@string/title_activity_symptom_overview"
             android:parentActivityName=".Symptoms_Main" >
@@ -191,6 +190,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.brittany.hcd.Food_Diary_Takeimage" />
+        </activity>
+        <activity
+            android:name=".Create_user"
+            android:label="@string/title_activity_create_user"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.brittany.hcd.MainActivity" />
         </activity>
     </application>
 
