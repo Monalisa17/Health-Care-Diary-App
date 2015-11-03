@@ -8,10 +8,18 @@ import android.view.View;
 import android.content.Intent;
 public class User_add_exercise extends AppCompatActivity {
 
+    String username = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_add_exercise);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Get the intent with the extra parameter
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
     }
 
     @Override
@@ -23,6 +31,7 @@ public class User_add_exercise extends AppCompatActivity {
     public void Add_exercise_clicked(View view)
     {
        Intent intent5 = new Intent(this, add_exercise.class);
+        intent5.putExtra("username", username);
         startActivity(intent5);
     }
     public void Pushup_clicked(View view)

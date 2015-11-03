@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
+import android.widget.EditText;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
@@ -44,7 +45,12 @@ public class MainActivity extends ActionBarActivity {
 
     public void Login_clicked(View view)
     {
+
+        EditText username = (EditText) findViewById(R.id.editText_user);
+
         Intent intent_login = new Intent(this, UserMainPage.class);
+        intent_login.putExtra("username", username.getText().toString().trim());
+
         startActivity(intent_login);
     }
     public void Create_account_click(View view)

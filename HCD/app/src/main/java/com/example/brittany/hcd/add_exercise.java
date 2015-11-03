@@ -16,10 +16,20 @@ import com.parse.SaveCallback;
 
 public class add_exercise extends AppCompatActivity {
 
+    String username = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_exercise);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Get the intent with the extra parameter
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
     }
     public void Exercise_entered(View view){
 
@@ -30,15 +40,15 @@ public class add_exercise extends AppCompatActivity {
         EditText Duration = (EditText) findViewById(R.id.editText_duration);
 
         // Check for Empty Boxes
-        if( TextUtils.isEmpty(_name.getText().toString()) ) {
+        if( TextUtils.isEmpty(_name.getText().toString().trim()) ) {
             _name.setError("Please enter a name for your exercise.");
             return;
         }
-        if( TextUtils.isEmpty(Reps.getText().toString()) ) {
+        if( TextUtils.isEmpty(Reps.getText().toString().trim()) ) {
             Reps.setError("Please enter the number of repetitions performed.");
             return;
         }
-        if( TextUtils.isEmpty(Duration.getText().toString()) ) {
+        if( TextUtils.isEmpty(Duration.getText().toString().trim()) ) {
             Duration.setError("Please enter how long the exercise will last.");
             return;
         }
@@ -58,8 +68,8 @@ public class add_exercise extends AppCompatActivity {
         // Parse
         ParseObject Add_Exercise = new ParseObject("Add_Exercise");
 
-        Add_Exercise.put("username", "Not Done Yet");
-        Add_Exercise.put("Name", _name.getText().toString());
+        Add_Exercise.put("username", username);
+        Add_Exercise.put("Name", _name.getText().toString().trim());
         Add_Exercise.put("Reps", _Reps);
         Add_Exercise.put("Duration", _Duration);
 

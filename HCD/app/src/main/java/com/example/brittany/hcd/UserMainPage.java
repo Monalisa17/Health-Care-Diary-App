@@ -16,12 +16,20 @@ import java.util.Random;
 
 public class UserMainPage extends AppCompatActivity {
 
+    String username = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main_page);
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Get the intent with the extra parameter
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
 
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -38,6 +46,7 @@ public class UserMainPage extends AppCompatActivity {
     public void Workout_clicked(View view)
     {
         Intent intent_workout = new Intent(this, Workout_Main.class);
+        intent_workout.putExtra("username", username);
         startActivity(intent_workout);
     }
     public void Food_diary_clicked(View view)
