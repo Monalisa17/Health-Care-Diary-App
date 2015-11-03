@@ -35,7 +35,6 @@ public class Food_Diary_Takeimage extends AppCompatActivity {
         //Parse.enableLocalDatastore(this);
 
 
-
         b = findViewById(R.id.saveButton);
         b.setVisibility(View.GONE);
         PhotoCapturedImageView = (ImageView)findViewById(R.id.imageView);

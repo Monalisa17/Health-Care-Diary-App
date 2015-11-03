@@ -59,8 +59,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SAVE"
-        android:id="@+id/saveButton"
         android:onClick="saveFoodEntry"
+        android:id="@+id/saveButton"
         android:layout_below="@+id/dText"
         android:layout_centerHorizontal="true" />
 
