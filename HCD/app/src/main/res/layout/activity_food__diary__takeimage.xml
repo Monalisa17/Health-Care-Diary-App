@@ -1,55 +1,43 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.brittany.hcd.Food_Diary_Takeimage"
     android:id="@+id/Text_title">
 
-    <TextView android:text="Food Diary" android:layout_width="wrap_content"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14pt"
-        android:textColor="#000000"
-        android:paddingLeft="80dp"
-        android:paddingTop="50dp" />
+        android:text="Take Photo"
+        android:id="@+id/photoButton"
+        android:onClick="takePhoto"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/photoButton"/>
 
-    <TextView
-        android:layout_width="403dp"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Take a picture of your food"
-        android:id="@+id/text_takepicture"
-        android:paddingTop="50dp"
-        android:textSize="12pt"
-        android:textColor="#000000"
-        android:paddingLeft="30dp" />
+        android:text="SAVE"
+        android:id="@+id/saveButton"
+        android:onClick="Save_food_details"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCEL"
+        android:id="@+id/cancelButton"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-
-        android:layout_row="2"
-        android:layout_column="3"
-        android:layout_marginTop="250dp">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:id="@+id/Save_button"
-            android:layout_column="0"
-            android:layout_row="1"
-            android:layout_marginLeft="50dp"
-            android:onClick="Save_food_details"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_column="1"
-            android:layout_row="1"
-            android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:id="@+id/Cancel_button"
-            android:layout_marginLeft="50dp" />
-    </GridLayout>
-
-
-</LinearLayout>
+</RelativeLayout>
