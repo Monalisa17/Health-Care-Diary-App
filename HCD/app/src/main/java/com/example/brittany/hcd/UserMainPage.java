@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class UserMainPage extends AppCompatActivity {
 
-    String username = "";
+//    String username = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +25,9 @@ public class UserMainPage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Get the intent with the extra parameter
-        Intent intent = getIntent();
-        username = intent.getStringExtra("username");
+//        // Get the intent with the extra parameter
+//        Intent intent = getIntent();
+//        username = intent.getStringExtra("username");
 
     }
     @Override
@@ -46,7 +46,7 @@ public class UserMainPage extends AppCompatActivity {
     public void Workout_clicked(View view)
     {
         Intent intent_workout = new Intent(this, Workout_Main.class);
-        intent_workout.putExtra("username", username);
+//        intent_workout.putExtra("username", username);
         startActivity(intent_workout);
     }
     public void Food_diary_clicked(View view)

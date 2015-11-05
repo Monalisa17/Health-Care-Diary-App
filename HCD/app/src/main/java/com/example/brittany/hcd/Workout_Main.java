@@ -9,7 +9,7 @@ import android.content.Intent;
 public class Workout_Main extends AppCompatActivity {
 
 
-    String username = "";
+//    String username = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,9 +20,9 @@ public class Workout_Main extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Get the intent with the extra parameter
-        Intent intent = getIntent();
-        username = intent.getStringExtra("username");
+//        // Get the intent with the extra parameter
+//        Intent intent = getIntent();
+//        username = intent.getStringExtra("username");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,7 +39,7 @@ public class Workout_Main extends AppCompatActivity {
    public void Start_workout_clicked(View view)
    {
        Intent intent5 = new Intent(this, User_add_exercise.class);
-       intent5.putExtra("username", username);
+//       intent5.putExtra("username", username);
        startActivity(intent5);
    }
     public void overview_clicked(View view)

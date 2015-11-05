@@ -1,6 +1,7 @@
 package com.example.brittany.hcd;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,7 +17,8 @@ import com.parse.SaveCallback;
 
 public class add_exercise extends AppCompatActivity {
 
-    String username = "";
+//    String username = "";MyPrefsFile
+    // SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +29,9 @@ public class add_exercise extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Get the intent with the extra parameter
-        Intent intent = getIntent();
-        username = intent.getStringExtra("username");
+//        // Get the intent with the extra parameter
+//        Intent intent = getIntent();
+//        username = intent.getStringExtra("username");
     }
     public void Exercise_entered(View view){
 
@@ -65,10 +67,20 @@ public class add_exercise extends AppCompatActivity {
             return;
         }
 
+
+
         // Parse
         ParseObject Add_Exercise = new ParseObject("Add_Exercise");
 
-        Add_Exercise.put("username", username);
+//        String username = prefs.getString("username", "");
+//        Toast.makeText(add_exercise.this, "Username: " + username,
+//                Toast.LENGTH_SHORT).show();
+//        if (username == "") {
+//            Toast.makeText(add_exercise.this, "No username defined",
+//                    Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+        Add_Exercise.put("username", "NO USERNAME PASSED IN YET");
         Add_Exercise.put("Name", _name.getText().toString().trim());
         Add_Exercise.put("Reps", _Reps);
         Add_Exercise.put("Duration", _Duration);

@@ -1,5 +1,6 @@
 package com.example.brittany.hcd;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,11 +13,16 @@ import com.parse.Parse;
 import com.parse.ParseInstallation;
 
 public class MainActivity extends ActionBarActivity {
+    // MY_PREFS_NAME - a static String variable like:
+    // public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
     }
     @Override
     protected void onResume() {
@@ -45,11 +51,16 @@ public class MainActivity extends ActionBarActivity {
 
     public void Login_clicked(View view)
     {
-
         EditText username = (EditText) findViewById(R.id.editText_user);
 
+
+//        // SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+//        editor.putString("username", username.getText().toString().trim());
+//        editor.putInt("idName", 12);
+//        editor.commit();
+
         Intent intent_login = new Intent(this, UserMainPage.class);
-        intent_login.putExtra("username", username.getText().toString().trim());
+        // intent_login.putExtra("username", username.getText().toString().trim());
 
         startActivity(intent_login);
     }
