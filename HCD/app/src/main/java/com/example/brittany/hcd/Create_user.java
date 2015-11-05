@@ -101,14 +101,12 @@ public class Create_user extends AppCompatActivity {
                     Toast.makeText(Create_user.this, e.getMessage(), Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent7 = new Intent(Create_user.this, UserMainPage.class);
+                    intent7.putExtra("usernameintent", usernameview.getText().toString());
                     intent7.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent7);
                 }
             }
         });
-
-     //   Intent intent7 = new Intent(this, UserMainPage.class);
-       // startActivity(intent7);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

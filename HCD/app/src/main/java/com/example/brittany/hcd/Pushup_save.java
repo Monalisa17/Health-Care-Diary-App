@@ -89,24 +89,8 @@ public class Pushup_save extends AppCompatActivity {
         {
             return true;
         }
-        // return super.onOptionsItemSelected(item);
-        if (id == R.id.action_bar)
-        {
 
-        }
-        onBackPressed();
-        return true;
+        return super.onOptionsItemSelected(item);
     }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
 
-       // Intent intent = new Intent(Pushup_save.this, Workout_Main.class);
-       // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-       // startActivity(intent);
-
-        startActivity(new Intent(this, Workout_Main.class));
-        // finish();
-
-    }
 }

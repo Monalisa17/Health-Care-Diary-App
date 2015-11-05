@@ -37,6 +37,12 @@ public class User_add_exercise extends AppCompatActivity {
         Intent intent7 = new Intent(this, Heart_rate_monitor_firstscreen.class);
         startActivity(intent7);
     }
+    public void create_new_routine(View view)
+    {
+        Intent intent_new_routine = new Intent(this, Workout_Main.class);
+        startActivity(intent_new_routine);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

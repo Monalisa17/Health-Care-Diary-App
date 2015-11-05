@@ -126,10 +126,10 @@
         <activity
             android:name=".Pushup_save"
             android:label="@string/title_activity_pushup_save"
-            android:parentActivityName=".Workout_Main" >
+            android:parentActivityName=".User_add_exercise" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.brittany.hcd.Workout_Main" />
+                android:value="com.example.brittany.hcd.User_add_exercise" />
         </activity>
         <activity
             android:name=".Heart_rate_monitor_firstscreen"
