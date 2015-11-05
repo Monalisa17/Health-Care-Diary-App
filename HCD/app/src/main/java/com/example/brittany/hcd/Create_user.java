@@ -106,9 +106,6 @@ public class Create_user extends AppCompatActivity {
                 }
             }
         });
-
-     //   Intent intent7 = new Intent(this, UserMainPage.class);
-       // startActivity(intent7);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
