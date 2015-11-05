@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
+import android.widget.TextView;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
@@ -21,6 +22,8 @@ public class UserMainPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main_page);
+        TextView nameview = (TextView) findViewById(R.id.username_text);
+        nameview.setText(getIntent().getExtras().getString("usernameintent"));
     }
     @Override
     protected void onResume() {
@@ -35,6 +38,8 @@ public class UserMainPage extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_user_main_page, menu);
         return true;
+
+
     }
 
     public void Symptoms_clicked(View view)
