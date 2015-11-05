@@ -34,18 +34,7 @@
         android:paddingLeft="-80dp"
         android:layout_marginTop="5dp"
         android:onClick="New_Routine_clicked"/>
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Start Workout"
-        android:id="@+id/startworkout"
-        android:layout_weight="0.20"
-        android:background="#922eb5"
-        android:textSize="12pt"
-        android:textColor="#ffffff"
-        android:paddingLeft="-20dp"
-        android:layout_marginTop="5dp"
-        android:onClick="Start_workout_clicked"/>
+
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
