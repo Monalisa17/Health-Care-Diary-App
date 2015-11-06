@@ -1,5 +1,7 @@
 package com.example.brittany.hcd;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,7 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
@@ -17,13 +20,21 @@ import java.util.Random;
 
 public class UserMainPage extends AppCompatActivity {
 
-//    String username = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main_page);
         TextView nameview = (TextView) findViewById(R.id.username_text);
-        nameview.setText(getIntent().getExtras().getString("usernameintent"));
+
+        SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String _username = prefs.getString("username", "");
+        // MIGHT NOT NEED
+//        if (_username == "") {
+//            Toast.makeText(UserMainPage.this, "No username found",
+//                    Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+        nameview.setText(_username);
     }
     @Override
     protected void onResume() {

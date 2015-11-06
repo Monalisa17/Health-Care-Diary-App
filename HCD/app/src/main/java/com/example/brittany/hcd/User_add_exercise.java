@@ -1,11 +1,16 @@
 package com.example.brittany.hcd;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
+import android.widget.TextView;
+import android.widget.Toast;
+
 public class User_add_exercise extends AppCompatActivity {
 
 //    String username = "";
@@ -17,9 +22,19 @@ public class User_add_exercise extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Get the intent with the extra parameter
-        Intent intent = getIntent();
-//        username = intent.getStringExtra("username");
+
+        TextView routineInputview = (TextView) findViewById(R.id.User_input_exercise);
+
+        SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String _routine = prefs.getString("routine", "");
+
+//        // MIGHT NOT NEED
+//        if (_routine == "") {
+//            Toast.makeText(User_add_exercise.this, "No routine found",
+//                    Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+        routineInputview.setText(_routine);
     }
 
     @Override

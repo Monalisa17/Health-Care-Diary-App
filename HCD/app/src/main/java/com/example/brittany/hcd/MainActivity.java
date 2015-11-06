@@ -1,6 +1,8 @@
 package com.example.brittany.hcd;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,11 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
-<<<<<<< HEAD
-=======
 import android.widget.Toast;
 import android.app.ProgressDialog;
->>>>>>> refs/remotes/origin/master
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
@@ -21,8 +20,6 @@ import com.parse.ParseException;
 import com.parse.LogInCallback;
 
 public class MainActivity extends ActionBarActivity {
-    // MY_PREFS_NAME - a static String variable like:
-    // public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     private EditText usernameview;
     private EditText passwordview;
@@ -32,13 +29,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
-
-
-=======
         usernameview = (EditText) findViewById(R.id.username);
         passwordview = (EditText) findViewById(R.id.password);
->>>>>>> refs/remotes/origin/master
     }
     @Override
     protected void onResume() {
@@ -67,20 +59,9 @@ public class MainActivity extends ActionBarActivity {
 
     public void Login_clicked(View view)
     {
-<<<<<<< HEAD
-        EditText username = (EditText) findViewById(R.id.editText_user);
+        // SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        // SharedPreferences prefs = getApplicationContext().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
 
-
-//        // SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-//        editor.putString("username", username.getText().toString().trim());
-//        editor.putInt("idName", 12);
-//        editor.commit();
-
-        Intent intent_login = new Intent(this, UserMainPage.class);
-        // intent_login.putExtra("username", username.getText().toString().trim());
-
-        startActivity(intent_login);
-=======
         boolean validationerror =false;
         StringBuilder validationerrormessage = new StringBuilder("Please ");
 
@@ -104,10 +85,10 @@ public class MainActivity extends ActionBarActivity {
 
         final ProgressDialog dig = new ProgressDialog(this);
         dig.setTitle("Please wait.");
-        dig.setMessage("Signing up. Please wait.");
+        dig.setMessage("Signing in. Please wait.");
         dig.show();
 
-        ParseUser user = new ParseUser();
+        final ParseUser user = new ParseUser();
         user.setUsername(usernameview.getText().toString());
         user.setPassword(passwordview.getText().toString());
 
@@ -120,8 +101,15 @@ public class MainActivity extends ActionBarActivity {
                             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                         } else {
                             Intent intent_login = new Intent(MainActivity.this, UserMainPage.class);
-                            intent_login.putExtra("usernameintent", usernameview.getText().toString());
+                            // intent_login.putExtra("usernameintent", usernameview.getText().toString());
                             intent_login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                            // PREFERENCES FILE and SUCCESSFUL LOGIN
+                            SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putString("username", usernameview.getText().toString().trim());
+                            editor.commit();
+
                             startActivity(intent_login);
                         }
                     }
@@ -144,7 +132,6 @@ public class MainActivity extends ActionBarActivity {
         }else{
             return false;
         }
->>>>>>> refs/remotes/origin/master
     }
     public void Create_account_click(View view)
     {

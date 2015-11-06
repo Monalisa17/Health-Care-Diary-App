@@ -1,7 +1,9 @@
 package com.example.brittany.hcd;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -17,21 +20,22 @@ import com.parse.SaveCallback;
 
 public class add_exercise extends AppCompatActivity {
 
-//    String username = "";MyPrefsFile
-    // SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_exercise);
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-//        // Get the intent with the extra parameter
-//        Intent intent = getIntent();
-//        username = intent.getStringExtra("username");
+        TextView routineInputview = (TextView) findViewById(R.id.User_input_exercise);
+        SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String _routine = prefs.getString("routine", "");
+        
+        routineInputview.setText(_routine);
+
     }
     public void Exercise_entered(View view){
 
@@ -67,8 +71,6 @@ public class add_exercise extends AppCompatActivity {
             return;
         }
 
-
-
         // Parse
         ParseObject Add_Exercise = new ParseObject("Add_Exercise");
 
@@ -80,7 +82,19 @@ public class add_exercise extends AppCompatActivity {
 //                    Toast.LENGTH_SHORT).show();
 //            return;
 //        }
-        Add_Exercise.put("username", "NO USERNAME PASSED IN YET");
+        SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String _username = prefs.getString("username","");
+//        String userss = usernameview.getText().toString().trim();
+//        Toast t = Toast.makeText(MainActivity.this, "SAVED " + userss + " OTHER TEST SHARED: " + users, Toast.LENGTH_LONG);
+//        t.show();
+
+        if (_username == "") {
+            Toast.makeText(add_exercise.this, "No username found",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Add_Exercise.put("username", _username);
         Add_Exercise.put("Name", _name.getText().toString().trim());
         Add_Exercise.put("Reps", _Reps);
         Add_Exercise.put("Duration", _Duration);
