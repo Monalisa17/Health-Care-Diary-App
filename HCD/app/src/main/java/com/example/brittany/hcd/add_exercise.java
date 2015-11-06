@@ -33,7 +33,7 @@ public class add_exercise extends AppCompatActivity {
         TextView routineInputview = (TextView) findViewById(R.id.User_input_exercise);
         SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         String _routine = prefs.getString("routine", "");
-        
+
         routineInputview.setText(_routine);
 
     }
