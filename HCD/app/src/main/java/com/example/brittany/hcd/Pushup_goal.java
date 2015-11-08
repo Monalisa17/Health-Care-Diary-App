@@ -45,9 +45,8 @@ public class Pushup_goal extends AppCompatActivity {
             Intent intent5 = new Intent(this,Position_pushup.class);
             intent5.putExtra("parameter_name", number);
 
-
-
             startActivity(intent5);
+
         } catch (NumberFormatException e) {
             e.printStackTrace();
             Toast t = Toast.makeText(this, "You have to put something!", Toast.LENGTH_SHORT);

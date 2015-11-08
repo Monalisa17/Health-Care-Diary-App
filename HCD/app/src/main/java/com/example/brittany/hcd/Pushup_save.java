@@ -1,6 +1,8 @@
 package com.example.brittany.hcd;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +28,6 @@ public class Pushup_save extends AppCompatActivity {
         pass = (TextView) findViewById(R.id.textView_dbentry);
 
 
-
         // Get the parameters passed
         Bundle extras = getIntent().getExtras();
         String pushdone_string = extras.getString("EXTRA_PUSHDONE");
@@ -36,10 +37,18 @@ public class Pushup_save extends AppCompatActivity {
         TextView displayGoal = (TextView) findViewById(R.id.textView_goalSave);
         displayGoal.setText(pushdone_string);
 
-
-
+        // PARSE WITH USERNAME PREFRECES
         ParseObject PushupCount = new ParseObject("PushupCount");
+
+        SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String _username = prefs.getString("username","");
+        if (_username == "") {
+            Toast.makeText(Pushup_save.this, "No username found",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
         PushupCount.put("Count", pushdone_string);
+        PushupCount.put("username", _username);
         PushupCount.saveInBackground();
 
         // Check if it saved, will display on the app
@@ -85,28 +94,10 @@ public class Pushup_save extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
+        if (id == R.id.action_settings) {
             return true;
         }
-        // return super.onOptionsItemSelected(item);
-        if (id == R.id.action_bar)
-        {
 
-        }
-        onBackPressed();
-        return true;
-    }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-       // Intent intent = new Intent(Pushup_save.this, Workout_Main.class);
-       // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-       // startActivity(intent);
-
-        startActivity(new Intent(this, Workout_Main.class));
-        // finish();
-
+        return super.onOptionsItemSelected(item);
     }
 }
