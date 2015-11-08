@@ -6,8 +6,19 @@
     25931a
 <ListView
     android:id="@+id/listview"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" />
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:layout_below="@+id/textView_time" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Today&apos;s Workouts"
+        android:id="@+id/textView_time"
+        android:textColor="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 

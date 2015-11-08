@@ -60,6 +60,42 @@ public class Workout_overview extends AppCompatActivity {
                     "Add_Exercise");
             query.orderByAscending("Name");
 
+//            USE FOR LAST MONTH DATA - NOT TESTED
+//
+//            // Today - Midnight; 00:00 is the first minute of the next day
+//            Calendar date = new GregorianCalendar();
+//
+//            // Get Last month - FirstDay
+//            date.set(Calendar.MONTH,date.get(Calendar.MONTH)-1); // Last Month
+//            date.set(Calendar.DAY_OF_MONTH,1); // first day
+//            // reset hour, minutes, seconds and millis
+//            date.set(Calendar.HOUR_OF_DAY, 0);
+//            date.set(Calendar.MINUTE, 0);
+//            date.set(Calendar.SECOND, 0);
+//            date.set(Calendar.MILLISECOND, 0);
+//            Date firstdayMonth = date.getTime();
+//
+//            // Get Last month - LastDay
+//            date.set(Calendar.MONTH,date.get(Calendar.MONTH)-1); // Last Month
+//            date.set(Calendar.DAY_OF_MONTH,31); // Last day
+//            // reset hour, minutes, seconds and millis
+//            date.set(Calendar.HOUR_OF_DAY, 23);
+//            date.set(Calendar.MINUTE, 59);
+//            date.set(Calendar.SECOND, 59);
+//            date.set(Calendar.MILLISECOND, 59);
+//            Date lastdayMonth = date.getTime();
+//
+//
+//            try {
+//                query.whereGreaterThan("createdAt", firstdayMonth);
+//                query.whereLessThan("createdAt", lastdayMonth);
+//                ob = query.find();
+//            } catch (ParseException e) {
+//                Log.e("Error", e.getMessage());
+//                e.printStackTrace();
+//            }
+
+
             // Today - Midnight; 00:00 is the first minute of the next day
             Calendar date = new GregorianCalendar();
             // reset hour, minutes, seconds and millis
@@ -156,7 +192,6 @@ public class Workout_overview extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
