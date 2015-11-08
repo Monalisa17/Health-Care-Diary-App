@@ -1,20 +1,95 @@
 package com.example.brittany.hcd;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Symptom_overview extends AppCompatActivity {
+    ListView dateList;
+    DateAdapter dateAdapter;
+    ArrayList<String> dateArray = new ArrayList<>();
 
-
+    ParseQuery query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_symptom_overview);
+
+        //grab data from database.
+        query = new ParseQuery("Symptom_Diary");
+        query.orderByDescending("createdAt");
+        //add items to arraylist
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
+                if (e == null) {
+                    Log.d("date", "Retrieved " + scoreList.size() + " dates");
+                    String previous = "date";
+                    for (ParseObject dealsObject : scoreList) {
+                        //how to display the string things
+                        //Log.d("thing", "Description: "+ dealsObject.getString("ImageDescription")+"\n");
+
+                        //format
+                        DateFormat outputFormatter = new SimpleDateFormat("dd MMM yyyy");
+                        String output = outputFormatter.format(dealsObject.getCreatedAt()).toString();
+
+                        if (!previous.equals(output)) {
+
+                            dateArray.add(output);
+                            Log.d("thing", "Date: " + previous);
+                            previous = output;
+                        }
+
+
+                    }
+
+                    dateAdapter = new DateAdapter(Symptom_overview.this, R.layout.activity_symptom_overview_row, dateArray);
+                    dateList = (ListView) findViewById(R.id.listView);
+                    dateList.setItemsCanFocus(false);
+                    dateList.setAdapter(dateAdapter);
+
+                    dateList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View v,
+                                                final int position, long id) {
+                            Log.i("List View Clicked", "**********");
+                            Toast.makeText(Symptom_overview.this,
+                                    "List View Clicked:" + position, Toast.LENGTH_LONG)
+                                    .show();
+
+                        }
+                    });
+
+
+                    for (int i = 0; i < dateArray.size(); i++) {
+                        Log.d("array", "Array " + dateArray.get(i));
+                    }
+
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+
+
     }
 
     @Override
