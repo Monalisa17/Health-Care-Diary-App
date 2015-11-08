@@ -60,7 +60,7 @@ public class Food_Save_details extends AppCompatActivity {
 
         if(name != null && description != null){
             // Create a New Class called "ImageUpload" in Parse
-            ParseObject imgupload = new ParseObject("FoodUpload");
+            ParseObject imgupload = new ParseObject("Food_Diary");
 
             // Create a column named "ImageName" and set the string
             //imgupload.put("ImageName", name.getText().toString());

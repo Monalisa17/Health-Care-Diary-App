@@ -1,16 +1,74 @@
 package com.example.brittany.hcd;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.parse.ParseObject;
 
 public class NewSymptom extends AppCompatActivity {
-
+    private SeekBar seekBar;
+    private TextView painView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_symptom);
+
+        seekBar = (SeekBar)findViewById(R.id.seekBar);
+        painView = (TextView)findViewById(R.id.pain_view);
+
+        painView.setText(Integer.toString(seekBar.getProgress()));
+
+        seekBar.setOnSeekBarChangeListener(
+                new SeekBar.OnSeekBarChangeListener() {
+                    int progress=0;
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
+                        progress=progressValue;
+                        painView.setText(Integer.toString(progress));
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+
+                    }
+                }
+        );
+
+    }
+
+
+    public void save_symptom(View view){
+
+        EditText name = (EditText)findViewById(R.id.edit_name);
+        EditText description = (EditText)findViewById(R.id.edit_description);
+
+        if(name != null && description != null){
+            // Create a New Class called "ImageUpload" in Parse
+            ParseObject symptom_entry = new ParseObject("Symptom_Diary");
+
+            // Create a column named "ImageName" and set the string
+            symptom_entry.put("SymptomName", name.getText().toString());
+            symptom_entry.put("SymptomDescription", description.getText().toString());
+            symptom_entry.put("PainLevel", painView.getText().toString());
+
+            // Create the class and the columns
+            symptom_entry.saveInBackground();
+
+            // Show a simple toast message
+            Toast.makeText(NewSymptom.this, "Symptom Uploaded!",
+                    Toast.LENGTH_SHORT).show();}
+
     }
 
     @Override
