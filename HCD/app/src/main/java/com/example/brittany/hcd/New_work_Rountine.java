@@ -1,12 +1,16 @@
 package com.example.brittany.hcd;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Context;
 import android.view.View;
+import android.widget.EditText;
+
 public class New_work_Rountine extends AppCompatActivity {
 
     @Override
@@ -25,6 +29,20 @@ public class New_work_Rountine extends AppCompatActivity {
     public void Create_click(View view)
     {
         Intent intent_create = new Intent(this, User_add_exercise.class);
+
+        EditText _routine = (EditText) findViewById(R.id.editText_routine);
+
+        // Check for Empty Boxes
+        if( TextUtils.isEmpty(_routine.getText().toString().trim()) ) {
+            _routine.setError("Please enter a new routine to add to your exercise.");
+            return;
+        }
+        // PREFERENCES FILE and SUCCESSFUL LOGIN
+        SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("routine", _routine.getText().toString().trim());
+        editor.commit();
+
         startActivity(intent_create);
     }
     @Override

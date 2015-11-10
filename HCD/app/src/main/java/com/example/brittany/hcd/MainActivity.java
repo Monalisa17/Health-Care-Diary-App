@@ -1,5 +1,8 @@
 package com.example.brittany.hcd;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -56,6 +59,9 @@ public class MainActivity extends ActionBarActivity {
 
     public void Login_clicked(View view)
     {
+        // SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        // SharedPreferences prefs = getApplicationContext().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+
         boolean validationerror =false;
         StringBuilder validationerrormessage = new StringBuilder("Please ");
 
@@ -73,16 +79,16 @@ public class MainActivity extends ActionBarActivity {
         validationerrormessage.append(".");
 
         if(validationerror){
-            Toast.makeText(MainActivity.this,validationerrormessage.toString(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,validationerrormessage.toString(),Toast.LENGTH_LONG).show();
             return;
         }
 
         final ProgressDialog dig = new ProgressDialog(this);
         dig.setTitle("Please wait.");
-        dig.setMessage("Signing up. Please wait.");
+        dig.setMessage("Signing in. Please wait.");
         dig.show();
 
-        ParseUser user = new ParseUser();
+        final ParseUser user = new ParseUser();
         user.setUsername(usernameview.getText().toString());
         user.setPassword(passwordview.getText().toString());
 
@@ -95,8 +101,15 @@ public class MainActivity extends ActionBarActivity {
                             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                         } else {
                             Intent intent_login = new Intent(MainActivity.this, UserMainPage.class);
-                            intent_login.putExtra("usernameintent", usernameview.getText().toString());
+                            // intent_login.putExtra("usernameintent", usernameview.getText().toString());
                             intent_login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                            // PREFERENCES FILE and SUCCESSFUL LOGIN
+                            SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putString("username", usernameview.getText().toString().trim());
+                            editor.commit();
+
                             startActivity(intent_login);
                         }
                     }

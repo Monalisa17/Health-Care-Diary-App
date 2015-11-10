@@ -50,7 +50,7 @@
             android:layout_height="74dp"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/editText3"
+            android:id="@+id/editText_routine"
             android:layout_gravity="center_horizontal"
             android:layout_row="1"
             android:layout_column="2"

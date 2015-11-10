@@ -1,6 +1,8 @@
 package com.example.brittany.hcd;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,12 +19,14 @@ import com.parse.SaveCallback;
 public class Pushup_save extends AppCompatActivity {
 
     TextView pass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pushup_save);
 
         pass = (TextView) findViewById(R.id.textView_dbentry);
+
 
         // Get the parameters passed
         Bundle extras = getIntent().getExtras();
@@ -33,8 +37,18 @@ public class Pushup_save extends AppCompatActivity {
         TextView displayGoal = (TextView) findViewById(R.id.textView_goalSave);
         displayGoal.setText(pushdone_string);
 
+        // PARSE WITH USERNAME PREFRECES
         ParseObject PushupCount = new ParseObject("PushupCount");
+
+        SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String _username = prefs.getString("username","");
+        if (_username == "") {
+            Toast.makeText(Pushup_save.this, "No username found",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
         PushupCount.put("Count", pushdone_string);
+        PushupCount.put("username", _username);
         PushupCount.saveInBackground();
 
         // Check if it saved, will display on the app
@@ -48,9 +62,11 @@ public class Pushup_save extends AppCompatActivity {
                 } else {
                     // Log.e("PARSE.COM", "SUCCESS");
                     pass.setText("Has been saved! ");
+
                 }
             }
         });
+
 
         if(Integer.parseInt(pushdone_string) > pushgoal_integer) {
             Toast t = Toast.makeText(this, "CONGRATULATIONS YOU BEAT YOUR GOAL!!!", Toast.LENGTH_SHORT);
@@ -78,12 +94,10 @@ public class Pushup_save extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
+        if (id == R.id.action_settings) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 }

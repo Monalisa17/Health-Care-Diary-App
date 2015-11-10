@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
 
             android:textColor="#ffffff"
-            android:text="'Strength'"
+            android:text="Default"
             android:id="@+id/User_input_exercise"
             android:layout_row="2"
             android:layout_column="1"
@@ -74,7 +74,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/imageButton"
-            android:src="@drawable/button_blue"
+            android:src="@drawable/add_button_blue"
             android:layout_row="0"
             android:layout_column="0"
             android:onClick="Add_exercise_clicked"
@@ -112,7 +112,7 @@
             android:id="@+id/imageButton2"
             android:layout_row="0"
             android:layout_column="0"
-            android:src="@drawable/button_blue"
+            android:src="@drawable/add_button_blue"
             android:onClick="Pushup_clicked"
             android:scaleType="fitCenter"
             android:paddingBottom="10dp" />
@@ -144,7 +144,7 @@
             android:layout_height="50dp"
             android:id="@+id/imageButton3"
             android:layout_row="0"
-            android:src="@drawable/button_blue"
+            android:src="@drawable/add_button_blue"
             android:layout_column="0"
             android:onClick="Heartrate_clicked"
             android:background="@null"
@@ -172,21 +172,12 @@
         android:paddingLeft="20dp">
 
         <Button
-            android:layout_width="109dp"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:textSize="10pt"
-            android:id="@+id/Save"
-            android:layout_row="1"
-            android:layout_column="0" />
-
-        <Button
             android:layout_width="220dp"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:text="Go back to Workout "
             android:textSize="8pt"
             android:id="@+id/create_new_routine"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_column="1"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="10dp"

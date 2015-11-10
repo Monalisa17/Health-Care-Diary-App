@@ -22,7 +22,7 @@ public class Heart_rate_monitor_firstscreen extends AppCompatActivity {
     }
     public void Get_heartrate(View view)
     {
-        Intent intent5 = new Intent(this, heart_rate_display.class);
+        Intent intent5 = new Intent(this, Loading_screen_Bioharness.class);
         startActivity(intent5);
     }
     @Override

@@ -1,7 +1,9 @@
 package com.example.brittany.hcd;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -80,7 +82,7 @@ public class Create_user extends AppCompatActivity {
         validationerrormessage.append(".");
 
         if(validationerror){
-            Toast.makeText(this,validationerrormessage.toString(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,validationerrormessage.toString(),Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -103,6 +105,13 @@ public class Create_user extends AppCompatActivity {
                     Intent intent7 = new Intent(Create_user.this, UserMainPage.class);
                     intent7.putExtra("usernameintent", usernameview.getText().toString());
                     intent7.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                    // PREFERENCES FILE and SUCCESSFUL LOGIN
+                    SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("username", usernameview.getText().toString().trim());
+                    editor.commit();
+
                     startActivity(intent7);
                 }
             }
