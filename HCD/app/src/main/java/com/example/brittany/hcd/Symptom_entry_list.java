@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -21,72 +20,82 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Symptom_overview extends AppCompatActivity {
-    ListView dateList;
-    DateAdapter dateAdapter;
-    ArrayList<String> dateArray = new ArrayList<>();
+public class Symptom_entry_list extends AppCompatActivity {
+    ListView symptomTitles;
+    TitleAdapter titleAdapter;
+    ArrayList<String> titlesArray = new ArrayList<>();
+    Symptom s;
 
+    String date;
     ParseQuery query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_symptom_overview);
+        setContentView(R.layout.activity_symptom_entry_list);
 
-        //grab data from database.
+       Bundle bundle = getIntent().getExtras();
+        date = bundle.getString("date");
         query = new ParseQuery("Symptom_Diary");
         query.orderByDescending("createdAt");
-        query.addDescendingOrder("SymptomName");
-        //add items to arraylist
+
         query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> scoreList, ParseException e) {
+            public void done(List<ParseObject> entryList, ParseException e) {
+
                 if (e == null) {
-                    Log.d("date", "Retrieved " + scoreList.size() + " dates");
-                    String previous = "date";
-                    for (ParseObject dealsObject : scoreList) {
+                    Log.d("score", "Retrieved " + entryList.size() + " scores");
+
+                    for (ParseObject dealsObject : entryList) {
                         //how to display the string things
                         //Log.d("thing", "Description: "+ dealsObject.getString("ImageDescription")+"\n");
 
                         //format
                         DateFormat outputFormatter = new SimpleDateFormat("dd MMM yyyy");
-                        String output = outputFormatter.format(dealsObject.getCreatedAt()).toString();
+                        String output = outputFormatter.format(dealsObject.getCreatedAt());
+                        //Log.d("thing", "Date: " + output);
 
-                        if (!previous.equals(output)) {
+                        if (date.equals(output)) {
+                            String n = (String)dealsObject.get("SymptomName");
+                            String d = (String)dealsObject.get("SymptomDescription");
+                            String i = (String)dealsObject.get("PainLevel");
+                            Integer p = Integer.parseInt(i);
+                            String dur = (String)dealsObject.get("Duration");
+                            Integer delta = Integer.parseInt(dur);
 
-                            dateArray.add(output);
-                            Log.d("thing", "Date: " + previous);
-                            previous = output;
+                            s = new Symptom(n,d,p,delta);
+
+                            //Log.d("poop","Symptom Name: "+ n );
+                            titlesArray.add(n);
+
                         }
 
-
                     }
+//might have to change layout thing. But let's check if it goes to the same screen.
+                    titleAdapter = new TitleAdapter(Symptom_entry_list.this, R.layout.activity_symptom_entry_list_row, titlesArray);
+                    symptomTitles = (ListView) findViewById(R.id.symptom_entryView);
+                    symptomTitles.setItemsCanFocus(false);
+                    symptomTitles.setAdapter(titleAdapter);
 
-                    dateAdapter = new DateAdapter(Symptom_overview.this, R.layout.activity_symptom_overview_row, dateArray);
-                    dateList = (ListView) findViewById(R.id.listView);
-                    dateList.setItemsCanFocus(false);
-                    dateList.setAdapter(dateAdapter);
-
-                    dateList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    symptomTitles.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                         @Override
                         public void onItemClick(AdapterView<?> parent, View v,
                                                 final int position, long id) {
+
+                            //lead to add specific symptom activity. (update at every edit.)
 //                            Log.i("List View Clicked", "**********");
-//                            Toast.makeText(Symptom_overview.this,
+//                            Toast.makeText(Symptom_entry_list.this,
 //                                    "List View Clicked:" + position, Toast.LENGTH_LONG)
 //                                    .show();
-                            String date = ((TextView) v.findViewById(R.id.dateView)).getText().toString();
-                            Intent intent = new Intent(getApplicationContext(),Symptom_entry_list.class );
-                            intent.putExtra("date", date);
+                            Intent intent = new Intent(getApplicationContext(), Specific_Symptom_click.class);
+                            intent.putExtra("Symptom",s);
+
                             startActivity(intent);
+
 
                         }
                     });
 
-
-//                   for (int i = 0; i < dateArray.size(); i++) {
-//                        Log.d("array", "Array " + dateArray.get(i));
-//                    }
 
                 } else {
                     Log.d("score", "Error: " + e.getMessage());
@@ -94,25 +103,13 @@ public class Symptom_overview extends AppCompatActivity {
             }
         });
 
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_symptom_overview, menu);
+        getMenuInflater().inflate(R.menu.menu_symptom_entry_list, menu);
         return true;
-    }
-
-    public void Edit_clicked(View view)
-    {
-        Intent intent_edit_1 = new Intent(this, Specific_Symptom_click.class);
-        startActivity(intent_edit_1);
-    }
-    public void delete_clicked(View view)
-    {
-        Intent intent_delete_1 = new Intent(this, Specific_Symptom_click.class);
-        startActivity(intent_delete_1);
     }
 
     @Override
