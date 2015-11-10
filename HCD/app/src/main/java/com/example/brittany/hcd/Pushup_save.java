@@ -17,15 +17,12 @@ import com.parse.SaveCallback;
 public class Pushup_save extends AppCompatActivity {
 
     TextView pass;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pushup_save);
 
         pass = (TextView) findViewById(R.id.textView_dbentry);
-
-
 
         // Get the parameters passed
         Bundle extras = getIntent().getExtras();
@@ -35,8 +32,6 @@ public class Pushup_save extends AppCompatActivity {
         // Display Value
         TextView displayGoal = (TextView) findViewById(R.id.textView_goalSave);
         displayGoal.setText(pushdone_string);
-
-
 
         ParseObject PushupCount = new ParseObject("PushupCount");
         PushupCount.put("Count", pushdone_string);
@@ -53,11 +48,9 @@ public class Pushup_save extends AppCompatActivity {
                 } else {
                     // Log.e("PARSE.COM", "SUCCESS");
                     pass.setText("Has been saved! ");
-
                 }
             }
         });
-
 
         if(Integer.parseInt(pushdone_string) > pushgoal_integer) {
             Toast t = Toast.makeText(this, "CONGRATULATIONS YOU BEAT YOUR GOAL!!!", Toast.LENGTH_SHORT);

@@ -80,7 +80,7 @@ public class Create_user extends AppCompatActivity {
         validationerrormessage.append(".");
 
         if(validationerror){
-            Toast.makeText(this,validationerrormessage.toString(),Toast.LENGTH_LONG).show();
+            Toast.makeText(this,validationerrormessage.toString(),Toast.LENGTH_SHORT).show();
             return;
         }
 

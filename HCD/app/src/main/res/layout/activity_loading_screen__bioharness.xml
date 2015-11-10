@@ -11,5 +11,6 @@
 
         android:src="@drawable/calculating"
         android:layout_alignParentBottom="true"
-        android:onClick="Display_heartrate_clicked"/>
+        android:onClick="Display_heartrate_clicked"
+        android:background="#2ca5ee" />
 </RelativeLayout>

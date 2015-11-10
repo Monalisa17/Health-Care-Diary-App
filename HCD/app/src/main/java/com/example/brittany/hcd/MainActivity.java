@@ -73,7 +73,7 @@ public class MainActivity extends ActionBarActivity {
         validationerrormessage.append(".");
 
         if(validationerror){
-            Toast.makeText(MainActivity.this,validationerrormessage.toString(),Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this,validationerrormessage.toString(),Toast.LENGTH_SHORT).show();
             return;
         }
 
