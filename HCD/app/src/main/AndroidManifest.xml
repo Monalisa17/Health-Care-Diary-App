@@ -199,6 +199,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.brittany.hcd.MainActivity" />
         </activity>
+        <activity
+            android:name=".Symptom_entry_list"
+            android:label="@string/title_activity_symptom_entry_list"
+            android:parentActivityName=".Symptom_overview"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.brittany.hcd.Symptom_overview" />
+        </activity>
     </application>
 
 </manifest>

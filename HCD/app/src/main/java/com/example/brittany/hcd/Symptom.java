@@ -1,9 +1,11 @@
 package com.example.brittany.hcd;
 
+import java.io.Serializable;
+
 /**
  * Created by Britt-Britt on 11/7/2015.
  */
-public class Symptom extends Entry {
+public class Symptom  extends Entry implements Serializable {
 
     int pain;
     int duration;

@@ -30,4 +30,5 @@
     <string name="title_activity_food__diary__takeimage">Food_Diary_Takeimage</string>
     <string name="title_activity_food__save_details">Food_Save_details</string>
     <string name="title_activity_create_user">Create_user</string>
+    <string name="title_activity_symptom_entry_list">Symptom_entry_list</string>
 </resources>

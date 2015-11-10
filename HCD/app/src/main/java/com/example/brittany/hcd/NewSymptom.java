@@ -52,6 +52,7 @@ public class NewSymptom extends AppCompatActivity {
 
         EditText name = (EditText)findViewById(R.id.edit_name);
         EditText description = (EditText)findViewById(R.id.edit_description);
+        EditText duration = (EditText)findViewById(R.id.edit_duration);
 
         if(name != null && description != null){
             // Create a New Class called "ImageUpload" in Parse
@@ -61,6 +62,7 @@ public class NewSymptom extends AppCompatActivity {
             symptom_entry.put("SymptomName", name.getText().toString());
             symptom_entry.put("SymptomDescription", description.getText().toString());
             symptom_entry.put("PainLevel", painView.getText().toString());
+            symptom_entry.put("Duration",duration.getText().toString());
 
             // Create the class and the columns
             symptom_entry.saveInBackground();
