@@ -15,6 +15,7 @@ import android.app.ProgressDialog;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.ParseException;
 import com.parse.LogInCallback;
@@ -42,6 +43,7 @@ public class MainActivity extends ActionBarActivity {
         {
             // Enable Local Datastore.
             Parse.enableLocalDatastore(this);
+            ParseObject.registerSubclass(Temp_Table.class); // Have to register a subclass before using it!!!
             Parse.initialize(this, "9lsXvAhxazTezFl8oTEhCnGr3p9S0qNetMNgmmgR", "ZYWsX8HmLCoEBFkfwZuPljn2VNiaqDomcMbkFIrk");
             ParseInstallation.getCurrentInstallation().saveInBackground();
         } catch (Exception e)

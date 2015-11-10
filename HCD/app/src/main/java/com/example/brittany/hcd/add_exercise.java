@@ -99,6 +99,16 @@ public class add_exercise extends AppCompatActivity {
         Add_Exercise.put("Reps", _Reps);
         Add_Exercise.put("Duration", _Duration);
 
+
+        // Master Table
+        Temp_Table item = new Temp_Table();
+        item.setName("Exercise: " + _name.getText().toString().trim()); // Name of Exercise
+        item.setName2("Repetitions: " + String.valueOf(_Reps)); // Reps
+        item.setUsername(_username); // Username
+        item.setType("Exercise"); // Category
+        item.saveInBackground();
+
+
         // Save the data
         Add_Exercise.saveInBackground();
 

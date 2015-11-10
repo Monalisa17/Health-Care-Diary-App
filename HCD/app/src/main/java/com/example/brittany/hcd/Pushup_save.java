@@ -37,9 +37,10 @@ public class Pushup_save extends AppCompatActivity {
         TextView displayGoal = (TextView) findViewById(R.id.textView_goalSave);
         displayGoal.setText(pushdone_string);
 
-        // PARSE WITH USERNAME PREFRECES
-        ParseObject PushupCount = new ParseObject("PushupCount");
+        // Parse Save Data
+         ParseObject PushupCount = new ParseObject("PushupCount");
 
+        // Share Prefrence
         SharedPreferences prefs = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         String _username = prefs.getString("username","");
         if (_username == "") {
@@ -49,7 +50,17 @@ public class Pushup_save extends AppCompatActivity {
         }
         PushupCount.put("Count", pushdone_string);
         PushupCount.put("username", _username);
+        PushupCount.put("Goal", pushgoal_integer);
+
+        // Master Table
+        Temp_Table item = new Temp_Table();
+        item.setName("Goal: " + String.valueOf(pushgoal_integer)); // Goal
+        item.setName2("Achieved: " + pushdone_string); // What you did
+        item.setUsername(_username); // Username
+        item.setType("Push Up"); // Category
+
         PushupCount.saveInBackground();
+        item.saveInBackground();
 
         // Check if it saved, will display on the app
         PushupCount.saveInBackground(new SaveCallback()
