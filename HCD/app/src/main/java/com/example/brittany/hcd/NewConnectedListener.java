@@ -1,12 +1,18 @@
 package com.example.brittany.hcd;
 
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import java.util.Random;
-
-import zephyr.android.BioHarnessBT.*;
+import zephyr.android.BioHarnessBT.BTClient;
+import zephyr.android.BioHarnessBT.ConnectListenerImpl;
+import zephyr.android.BioHarnessBT.ConnectedEvent;
+import zephyr.android.BioHarnessBT.PacketTypeRequest;
+import zephyr.android.BioHarnessBT.ZephyrPacketArgs;
+import zephyr.android.BioHarnessBT.ZephyrPacketEvent;
+import zephyr.android.BioHarnessBT.ZephyrPacketListener;
+import zephyr.android.BioHarnessBT.ZephyrProtocol;
 
 public class NewConnectedListener extends ConnectListenerImpl
 {
